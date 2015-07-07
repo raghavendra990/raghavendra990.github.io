@@ -12,7 +12,7 @@ theme:
 
   # Header and footer text
   header_text: >
-     <p>I am final year engineering student interested in data science. For me the data science is the way by which we can extract meaningful information and use it to make smart business decisions and eliminate problem in society.</p>
+  <p>Data Science, Minimalism and Musings</p>
   header_text_feature_image:
   footer_text: >
     © 2015. All rights reserved.
@@ -25,7 +25,7 @@ theme:
   dribbble:
   facebook: "raghavyadav990"
   flickr:
-  github: "rohanchandra/type-theme"
+  github: "raghavendra990"
   google_plus:
   instagram:
   linkedin: "https://in.linkedin.com/in/raghavyadav990" # Full URL
