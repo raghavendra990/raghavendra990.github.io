@@ -425,8 +425,3 @@ td,
 th {
   padding: 0;
 }
-
-mark {
-    background-color: #E6E6E6;
-    
-}
