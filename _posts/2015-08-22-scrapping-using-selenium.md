@@ -24,7 +24,7 @@ from selenium.webdriver.common.by import By    # For selecting html code
 import time   
 {% endhighlight %} 
 
-Now you done with imports of necessary packages, now launch webdriver for specific for your browser. I am using firefox in this case you can use any browser depends on selenium list of supported browser.
+Now you done with imports of necessary packages, now launch webdriver specific for your browser. I am using firefox in this case you can use any browser depends on selenium list of supported browser.
 It will open the web browser.
 
 {% highlight python %}
@@ -46,7 +46,7 @@ After doing this we are having html content for all the products. Now the thing 
 url =  num[0].get_attribute("data-url")
 {% endhighlight %}
 
-###writing whole code in once.
+###Writing whole code in once.
 
 {% highlight python %}
 from selenium import webdriver    #open webdriver for specific browser
@@ -67,4 +67,5 @@ def url_scrp(range=5):
 
 {% endhighlight %}
 
-For any typos and any problem feel free to comment and and mail :)
+For any typos and any problem feel free to comment and and mail.
+Piece :)
