@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+	<meta charset="utf-8">
+	<title>Django Tutorial for starters | Raghav Blog</title>
+	<meta name="description" content="Hi guys, I am writing this blog to help people starting with django. This tutorial inclined on basic of django so that any one cat start with. If any one hav...">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-Frame-Options" content="sameorigin">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="/css/main.css">
+
+	<!--Favicon-->
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+	<!-- Canonical -->
+	<link rel="canonical" href="http://raghavendra990.github.io//2015/09/07/django-starter-tutorial.html">
+
+	<!-- RSS -->
+	<link rel="alternate" type="application/atom+xml" title="Raghav Blog" href="http://raghavendra990.github.io//feed.xml" />
+
+	<!-- Font Awesome -->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Google Fonts -->
+	
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic" rel="stylesheet" type="text/css">
+	
+
+	<!-- KaTeX -->
+	
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.3.0/katex.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.3.0/katex.min.js"></script>
+	
+
+	<!-- Google Analytics -->
+	
+</head>
+
+  <body>
+    <header class="site-header">
+	<div class="branding">
+		
+		<a href="/">
+			<img class="avatar" src="/img/avatar.png" alt=""/>
+		</a>
+		
+		<h1 class="site-title">
+			<a href="/">Raghav Blog</a>
+		</h1>
+	</div>
+	<nav class="site-nav">
+		<ul>
+			
+			
+			
+			
+			<li>
+				<a class="page-link" href="/about/">
+					About me
+				</a>
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			<!-- Social icons from Font Awesome, if enabled -->
+			
+
+
+<li>
+	<a href="mailto:raghavyadav990@gmail.com" title="Email">
+		<i class="fa fa-fw fa-envelope"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://www.facebook.com/raghavyadav990" title="Follow on Facebook">
+		<i class="fa fa-fw fa-facebook"></i>
+	</a>
+</li>
+
+
+
+
+
+<li>
+	<a href="https://github.com/raghavendra990" title="Follow on GitHub">
+		<i class="fa fa-fw fa-github"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+<li>
+	<a href="https://in.linkedin.com/in/raghavyadav990" title="Follow on LinkedIn">
+		<i class="fa fa-fw fa-linkedin"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://twitter.com/raghavyadav990" title="Follow on Twitter">
+		<i class="fa fa-fw fa-twitter"></i>
+	</a>
+</li>
+
+
+
+
+
+
+		</ul>
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header style="background-image: url('/')">
+    <h1 class="title">Django Tutorial for starters</h1>
+    <p class="meta">
+    September 7, 2015
+    
+    </p>
+  </header>
+  <section class="post-content"><p>Hi guys, I am writing this blog to help people starting with django. This tutorial inclined on basic of django so that any one cat start with. If any one have some other doubt than free to ask me by making comment or email me.
+<br />
+Django is python framework for web development, Before django I only know <a href="http://flask.pocoo.org/">Flask</a>(Other python Framework), it is very much similar simple python programming. For learning Flask you only have to read single page on there documentation And you ready to build. where Django is vast and versatile frame work. It is very nicely written so to make your code look cleaner.
+<br /></p>
+
+<h4>Start with basic installation</h4>
+<p><br />
+Install using pip:
+<br />
+<code style="background-color: #d3d3d3">pip install django</code>
+<br />
+confirm install by typing:
+<br />
+<code style="background-color: #d3d3d3">django-admin --version</code>
+<br />
+<code style="background-color: #d3d3d3">1.9</code>
+<br />
+<b>No error uptill here, means you have succefully install django</b>
+<br />
+Make directory <code style="background-color: #d3d3d3">django_project</code> by typing command:
+<br /> <code style="background-color: #d3d3d3">mkdir django_project</code>
+<br />
+Now lets do some django.
+<br /></p>
+<h4>Creating a project:</h4>
+<p><br />
+From command line cd into directory and run following command:
+<code style="background-color: #d3d3d3">django-admin startproject mysite</code>
+<br />
+This will create django project name mysite.
+<br />
+Let’s look at what startproject created:
+<br />
+<code style="background-color: ">
+mysite/<br />
+&nbsp;&nbsp;&nbsp;&nbsp;manage.py<br />
+&nbsp;&nbsp;&nbsp;&nbsp;mysite/<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__init__.py<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;settings.py<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;urls.py<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wsgi.py<br /></code></p>
+
+<ul>
+  <li>The outer mysite/ root directory is just a container for your project.</li>
+  <li><code>manage.py</code> is a command line utiity that interact with django project with varous ways.</li>
+  <li>The inner mysite/ directory is the actual Python package for your project.</li>
+  <li>mysite/__init__.py: An empty file that tells Python that this directory should be considered a Python package. </li>
+  <li>mysite/settings.py: Settings/configuration for this Django project. It contain configuration related to database setup, template static file location etc.</li>
+  <li>mysite/urls.py: The URL declarations for this Django project; </li>
+</ul>
+
+<p><br /></p>
+<h4>Development server</h4>
+<p><br />
+<code style="background-color: ">python manage.py runserver</code>
+<br />
+In your web browser type <code>http://127.0.0.1:8000/</code>. You will probably going to see nice light blue window showing success message. <br />
+Django comes with light weight development server so that you can boost development of your application. But we suggest not to used for production.
+<br /><b>Congratulate guys you have succesfulliy installed django</b></p>
+
+<p><br />
+Now next part is adding application and basic functioning of files present.
+<br /></p>
+<h4>Creating polls app:</h4>
+<p><br />
+For creating your first app type command:<br />
+<code style="background-color: ">python manage.py startapp polls</code><br /></p>
+
+<p>This command will generate polls directory with follwing file:<br /></p>
+
+<p>polls/<br />
+    <strong>init</strong>.py<br />
+    admin.py<br />
+    apps.py<br />
+    migrations/<br />
+        <strong>init</strong>.py<br />
+    models.py<br />
+    tests.py<br />
+    views.py<br /></p>
+
+<h4>Writing views</h4>
+<p><br />
+Views as by name is responsible what user will view. Views are written in file views.py .<br />
+<code>polls/views.py</code><br /></p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s">&quot;Hello, world. You&#39;re at the polls index.&quot;</span><span class="p">)</span></code></pre></div>
+
+<p>This is simplest view in Django. Views are called when they map with URL - for this we need to URLconf.
+<br />
+To create a URLconf in the polls directory, create a file called urls.py. Your app directory will look like:
+<br /></p>
+
+<p>polls/<br />
+    <strong>init</strong>.py<br />
+    admin.py<br />
+    apps.py<br />
+    migrations/<br />
+        <strong>init</strong>.py<br />
+    models.py<br />
+    tests.py<br />
+    urls.py<br />
+    views.py<br /></p>
+
+<p>In the polls/urls.py file include the following code:
+<br />
+<code>polls/urls.py</code><br /></p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">url</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^$&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;index&#39;</span><span class="p">),</span>
+<span class="p">]</span></code></pre></div>
+
+<p>The next step is to point the root URLconf at the <code>polls.urls</code> module. In <code>mysite./urls.py</code>, add an import for django.conf.urls.include and insert an include() in the urlpatterns list, so you have:
+<code>mysite/urls.py</code>
+<br /></p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">include</span><span class="p">,</span> <span class="n">url</span>
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^polls/&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s">&#39;polls.urls&#39;</span><span class="p">)),</span>
+    <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^admin/&#39;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+<span class="p">]</span></code></pre></div>
+
+<p>Now again runserver, And go to link <a href="http://localhost:8000/polls/"> http://localhost:8000/polls/</a> in your browser.
+<br /></p>
+
+<p>you are done with basic django installation now for more learning got <a href="https://docs.djangoproject.com/en/1.9/intro/tutorial02/">Django Official tutorial part 2</a>.
+<br />
+For any suggestion bugs and doubt feel free to comment or email.
+<br /></p>
+</section>
+</article>
+
+<!-- Post navigation -->
+
+
+<!-- Disqus -->
+
+<div class="comments">
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+	var disqus_shortname = 'raghavendra990';
+	(function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</div>
+
+
+    </div>
+    <script src="/js/main.js"></script>
+
+
+<footer class="site-footer">
+	<p class="text">© 2015. All rights reserved.
+</p>
+</footer>
+
+
+  </body>
+</html>
