@@ -4,9 +4,9 @@ title: Django Tutorial for starters
 comments: True
 ---
 
-Hi guys, I am writing this blog to help people starting with django. This tutorial inclined on basic of django so that any one cat start with. If any one have some other doubt than free to ask me by making comment or email me.
+Hi guys, I am writing this blog to help people starting with Django. This tutorial inclined on basic of Django so that any one cat start with. If anyone has some other doubt than free to ask me by making a comment or email me. 
 <br>
-Django is python framework for web development, Before django I only know <a href="http://flask.pocoo.org/">Flask</a>(Other python Framework), it is very much similar simple python programming. For learning Flask you only have to read single page on there documentation And you ready to build. where Django is vast and versatile frame work. It is very nicely written so to make your code look cleaner.
+Django is python framework for web development, Before Jango I only know <a href="http://flask.pocoo.org/">Flask</a>(Other python Framework), it is very much similar to a simple python programming. For learning Flask, you only have to read very first page of there documentation And you ready to build. whereas Django is the vast and versatile framework. It is very nicely written so to make your code look cleaner. 
 <br>
 
 <h4>Start with basic installation</h4>
@@ -26,14 +26,14 @@ confirm install by typing:
 Make directory <code style="background-color: #d3d3d3">django_project</code> by typing command:
 <br> <code style="background-color: #d3d3d3">mkdir django_project</code>
 <br>
-Now lets do some django.
+Now let's do some Django. 
 <br>
 <h4>Creating a project:</h4>
 <br>
 From command line cd into directory and run following command:
 <code style="background-color: #d3d3d3">django-admin startproject mysite</code>
 <br>
-This will create django project name mysite.
+This will create Django project name "mysite". 
 <br>
 Let’s look at what startproject created:
 <br>
@@ -48,10 +48,10 @@ mysite/<br>
 
 <ul>
   <li>The outer mysite/ root directory is just a container for your project.</li>
-  <li ><code>manage.py</code> is a command line utiity that interact with django project with varous ways.</li>
+  <li ><code>manage.py</code> is a command line utility that interacts with Django project in various ways.</li>
   <li>The inner mysite/ directory is the actual Python package for your project.</li>
   <li>mysite/__init__.py: An empty file that tells Python that this directory should be considered a Python package. </li>
-  <li>mysite/settings.py: Settings/configuration for this Django project. It contain configuration related to database setup, template static file location etc.</li>
+  <li>mysite/settings.py: Settings/configuration for this Django project. It contains configuration related to database setup, template static file location etc.</li>
   <li>mysite/urls.py: The URL declarations for this Django project; </li>
 </ul>
 
@@ -60,9 +60,9 @@ mysite/<br>
 <br>
 <code style="background-color: ">python manage.py runserver</code>
 <br>
-In your web browser type <code>http://127.0.0.1:8000/</code>. You will probably going to see nice light blue window showing success message. <br>
-Django comes with light weight development server so that you can boost development of your application. But we suggest not to used for production.
-<br><b>Congratulate guys you have succesfulliy installed django</b>
+In your web browser type <code>http://127.0.0.1:8000/</code>. You will probably be going to see the nice light blue window showing a success message.  <br>
+Django comes with lightweight development server so that you can boost development of your application. But we suggest not to used for production. 
+<br><b>Congratulate guys you have successfully installed Django</b>
 
 <br>
 Now next part is adding application and basic functioning of files present.
@@ -85,7 +85,7 @@ polls/<br>
 
 <h4>Writing views</h4>
 <br>
-Views as by name is responsible what user will view. Views are written in file views.py .<br>
+"Views.py" as by name is responsible what user will view. Views are written in file views.py .<br>
 <code>polls/views.py</code><br>
 
 {% highlight python %}
@@ -123,7 +123,7 @@ urlpatterns = [
 ]
 {% endhighlight %} 
 
-The next step is to point the root URLconf at the <code>polls.urls</code> module. In <code>mysite./urls.py</code>, add an import for django.conf.urls.include and insert an include() in the urlpatterns list, so you have:
+The next step is to point the root URLconf at the <code>polls.urls</code> module. In,  <code>mysite./urls.py</code>, add an import for django.conf.urls.include and insert an include() in the "urlpatterns" list, so you have:
 <code>mysite/urls.py</code>
 <br>
 {% highlight python %}
