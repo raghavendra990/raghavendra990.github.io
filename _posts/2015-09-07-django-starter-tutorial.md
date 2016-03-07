@@ -140,5 +140,5 @@ Now again runserver, And go to link <a href="http://localhost:8000/polls/"> http
 
 you are done with basic django installation now for more learning got <a href="https://docs.djangoproject.com/en/1.9/intro/tutorial02/">Django Official tutorial part 2</a>.
 <br>
-For any suggestion bugs and doubt feel free to comment or email.
+For any typos or any problem feel free to comment and mail.
 <br>
