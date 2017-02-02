@@ -8,11 +8,11 @@ theme:
   title: Raghav Blog
   avatar: avatar.png
   gravatar: # Email MD5 hash
-  description: "A hardcore programmer" # used by search engines
+  description: "A Data Science enthusiast" # used by search engines
 
   # Header and footer text
   header_text: >
-     <p>Data Science, Minimalism and Musings</p>
+     <p>Programming is fun</p>
   header_text_feature_image:
   footer_text: >
     © 2015. All rights reserved.
