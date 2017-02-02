@@ -3,7 +3,7 @@
   <head>
 	<meta charset="utf-8">
 	<title>Django Tutorial for starters | Raghav Blog</title>
-	<meta name="description" content="Hi guys, I am writing this blog to help people starting with django. This tutorial inclined on basic of django so that any one cat start with. If any one hav...">
+	<meta name="description" content="Hi guys, I am writing this blog to help people starting with Django. This tutorial inclined on basic of Django so that any one cat start with. If anyone has ...">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-Frame-Options" content="sameorigin">
 
@@ -14,10 +14,10 @@
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
 	<!-- Canonical -->
-	<link rel="canonical" href="http://raghavendra990.github.io//2015/09/07/django-starter-tutorial.html">
+	<link rel="canonical" href="http://localhost:4000/2015/09/07/django-starter-tutorial.html">
 
 	<!-- RSS -->
-	<link rel="alternate" type="application/atom+xml" title="Raghav Blog" href="http://raghavendra990.github.io//feed.xml" />
+	<link rel="alternate" type="application/atom+xml" title="Raghav Blog" href="http://localhost:4000/feed.xml" />
 
 	<!-- Font Awesome -->
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
@@ -152,9 +152,9 @@
     
     </p>
   </header>
-  <section class="post-content"><p>Hi guys, I am writing this blog to help people starting with django. This tutorial inclined on basic of django so that any one cat start with. If any one have some other doubt than free to ask me by making comment or email me.
+  <section class="post-content"><p>Hi guys, I am writing this blog to help people starting with Django. This tutorial inclined on basic of Django so that any one cat start with. If anyone has some other doubt than free to ask me by making a comment or email me. 
 <br />
-Django is python framework for web development, Before django I only know <a href="http://flask.pocoo.org/">Flask</a>(Other python Framework), it is very much similar simple python programming. For learning Flask you only have to read single page on there documentation And you ready to build. where Django is vast and versatile frame work. It is very nicely written so to make your code look cleaner.
+Django is python framework for web development, Before Jango I only know <a href="http://flask.pocoo.org/">Flask</a>(Other python Framework), it is very much similar to a simple python programming. For learning Flask, you only have to read very first page of there documentation And you ready to build. whereas Django is the vast and versatile framework. It is very nicely written so to make your code look cleaner. 
 <br /></p>
 
 <h4>Start with basic installation</h4>
@@ -174,14 +174,14 @@ confirm install by typing:
 Make directory <code style="background-color: #d3d3d3">django_project</code> by typing command:
 <br /> <code style="background-color: #d3d3d3">mkdir django_project</code>
 <br />
-Now lets do some django.
+Now let’s do some Django. 
 <br /></p>
 <h4>Creating a project:</h4>
 <p><br />
 From command line cd into directory and run following command:
 <code style="background-color: #d3d3d3">django-admin startproject mysite</code>
 <br />
-This will create django project name mysite.
+This will create Django project name “mysite”. 
 <br />
 Let’s look at what startproject created:
 <br />
@@ -196,10 +196,10 @@ mysite/<br />
 
 <ul>
   <li>The outer mysite/ root directory is just a container for your project.</li>
-  <li><code>manage.py</code> is a command line utiity that interact with django project with varous ways.</li>
+  <li><code>manage.py</code> is a command line utility that interacts with Django project in various ways.</li>
   <li>The inner mysite/ directory is the actual Python package for your project.</li>
   <li>mysite/__init__.py: An empty file that tells Python that this directory should be considered a Python package. </li>
-  <li>mysite/settings.py: Settings/configuration for this Django project. It contain configuration related to database setup, template static file location etc.</li>
+  <li>mysite/settings.py: Settings/configuration for this Django project. It contains configuration related to database setup, template static file location etc.</li>
   <li>mysite/urls.py: The URL declarations for this Django project; </li>
 </ul>
 
@@ -208,9 +208,9 @@ mysite/<br />
 <p><br />
 <code style="background-color: ">python manage.py runserver</code>
 <br />
-In your web browser type <code>http://127.0.0.1:8000/</code>. You will probably going to see nice light blue window showing success message. <br />
-Django comes with light weight development server so that you can boost development of your application. But we suggest not to used for production.
-<br /><b>Congratulate guys you have succesfulliy installed django</b></p>
+In your web browser type <code>http://127.0.0.1:8000/</code>. You will probably be going to see the nice light blue window showing a success message.  <br />
+Django comes with lightweight development server so that you can boost development of your application. But we suggest not to used for production. 
+<br /><b>Congratulate guys you have successfully installed Django</b></p>
 
 <p><br />
 Now next part is adding application and basic functioning of files present.
@@ -234,12 +234,12 @@ For creating your first app type command:<br />
 
 <h4>Writing views</h4>
 <p><br />
-Views as by name is responsible what user will view. Views are written in file views.py .<br />
+“Views.py” as by name is responsible what user will view. Views are written in file views.py .<br />
 <code>polls/views.py</code><br /></p>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
 <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s">&quot;Hello, world. You&#39;re at the polls index.&quot;</span><span class="p">)</span></code></pre></div>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s">"Hello, world. You're at the polls index."</span><span class="p">)</span> </code></pre></figure>
 
 <p>This is simplest view in Django. Views are called when they map with URL - for this we need to URLconf.
 <br />
@@ -261,22 +261,22 @@ To create a URLconf in the polls directory, create a file called urls.py. Your a
 <br />
 <code>polls/urls.py</code><br /></p>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">url</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">url</span>
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
 <span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^$&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;index&#39;</span><span class="p">),</span>
-<span class="p">]</span></code></pre></div>
+    <span class="n">url</span><span class="p">(</span><span class="s">r'^$'</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">'index'</span><span class="p">),</span>
+<span class="p">]</span></code></pre></figure>
 
-<p>The next step is to point the root URLconf at the <code>polls.urls</code> module. In <code>mysite./urls.py</code>, add an import for django.conf.urls.include and insert an include() in the urlpatterns list, so you have:
+<p>The next step is to point the root URLconf at the <code>polls.urls</code> module. In,  <code>mysite./urls.py</code>, add an import for django.conf.urls.include and insert an include() in the “urlpatterns” list, so you have:
 <code>mysite/urls.py</code>
 <br /></p>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">include</span><span class="p">,</span> <span class="n">url</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">include</span><span class="p">,</span> <span class="n">url</span>
 <span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
 <span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^polls/&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s">&#39;polls.urls&#39;</span><span class="p">)),</span>
-    <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^admin/&#39;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
-<span class="p">]</span></code></pre></div>
+    <span class="n">url</span><span class="p">(</span><span class="s">r'^polls/'</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s">'polls.urls'</span><span class="p">)),</span>
+    <span class="n">url</span><span class="p">(</span><span class="s">r'^admin/'</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+<span class="p">]</span></code></pre></figure>
 
 <p>Now again runserver, And go to link <a href="http://localhost:8000/polls/"> http://localhost:8000/polls/</a> in your browser.
 <br /></p>

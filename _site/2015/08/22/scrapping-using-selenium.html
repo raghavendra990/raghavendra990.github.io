@@ -14,10 +14,10 @@
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
 	<!-- Canonical -->
-	<link rel="canonical" href="http://raghavendra990.github.io//2015/08/22/scrapping-using-selenium.html">
+	<link rel="canonical" href="http://localhost:4000/2015/08/22/scrapping-using-selenium.html">
 
 	<!-- RSS -->
-	<link rel="alternate" type="application/atom+xml" title="Raghav Blog" href="http://raghavendra990.github.io//feed.xml" />
+	<link rel="alternate" type="application/atom+xml" title="Raghav Blog" href="http://localhost:4000/feed.xml" />
 
 	<!-- Font Awesome -->
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
@@ -163,44 +163,44 @@
 
 <h3 id="import-necessary-packages">Import necessary packages</h3>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>    <span class="c">#open webdriver for specific browser</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>    <span class="c">#open webdriver for specific browser</span>
 <span class="kn">from</span> <span class="nn">selenium.webdriver.common.keys</span> <span class="kn">import</span> <span class="n">Keys</span>   <span class="c"># for necessary browser action</span>
 <span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>    <span class="c"># For selecting html code</span>
-<span class="kn">import</span> <span class="nn">time</span></code></pre></div>
+<span class="kn">import</span> <span class="nn">time</span>   </code></pre></figure>
 
 <p>Now you done with imports of necessary packages, now launch webdriver specific for your browser. I am using firefox in this case you can use any browser depends on selenium list of supported browser.
 It will open the web browser.</p>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Firefox</span><span class="p">()</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;http://www.jabong.com/men/clothing/polos-tshirts/&quot;</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Firefox</span><span class="p">()</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"http://www.jabong.com/men/clothing/polos-tshirts/"</span><span class="p">)</span></code></pre></figure>
 
 <p>Now next thing is that you have to scroll down untill to the end of the page or upto specific number of times depends on how much products you want. I am scrolling 50 times, In each scrolling 52 products are added so for 50 X 52 = 2600 , around 2600 products will scrap. And after each scroll I used to wait for 3 sec so that html page load properly.</p>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">50</span><span class="p">):</span>
-	<span class="n">driver</span><span class="o">.</span><span class="n">execute_script</span><span class="p">(</span><span class="s">&quot;window.scrollTo(0, document.body.scrollHeight);&quot;</span><span class="p">)</span>
-	<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">50</span><span class="p">):</span>
+	<span class="n">driver</span><span class="o">.</span><span class="n">execute_script</span><span class="p">(</span><span class="s">"window.scrollTo(0, document.body.scrollHeight);"</span><span class="p">)</span>
+	<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span></code></pre></figure>
 
 <p>After doing this we are having html content for all the products. Now the thing required is to scrap the necessary info from page, so for our case we are scraping product-url for each product. so for this we are using <code>xpath</code> selector, If in case you want learn about <code>xpath</code> <a href="http://www.w3schools.com/xsl/xpath_intro.asp">click here.</a></p>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">url</span> <span class="o">=</span>  <span class="n">num</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s">&quot;data-url&quot;</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">url</span> <span class="o">=</span>  <span class="n">num</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s">"data-url"</span><span class="p">)</span></code></pre></figure>
 
-<h3 id="writing-whole-code-in-once">Writing whole code in once.</h3>
+<p>###Writing whole code in once.</p>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>    <span class="c">#open webdriver for specific browser</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>    <span class="c">#open webdriver for specific browser</span>
 <span class="kn">from</span> <span class="nn">selenium.webdriver.common.keys</span> <span class="kn">import</span> <span class="n">Keys</span>   <span class="c"># for necessary browser action</span>
 <span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>    <span class="c"># For selecting html code</span>
 <span class="kn">import</span> <span class="nn">time</span>   
 
 <span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Firefox</span><span class="p">()</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;http://www.jabong.com/men/clothing/polos-tshirts/&quot;</span><span class="p">)</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"http://www.jabong.com/men/clothing/polos-tshirts/"</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">url_scrp</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
 	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">range</span><span class="p">):</span>
-		<span class="n">driver</span><span class="o">.</span><span class="n">execute_script</span><span class="p">(</span><span class="s">&quot;window.scrollTo(0, document.body.scrollHeight);&quot;</span><span class="p">)</span>
+		<span class="n">driver</span><span class="o">.</span><span class="n">execute_script</span><span class="p">(</span><span class="s">"window.scrollTo(0, document.body.scrollHeight);"</span><span class="p">)</span>
 		<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
-	<span class="n">url</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_elements</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span><span class="s">&#39;//ul[@id=&quot;productsCatalog&quot;]/li&#39;</span><span class="p">)</span>
-	<span class="k">return</span> <span class="n">url</span></code></pre></div>
+	<span class="n">url</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_elements</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span><span class="s">'//ul[@id="productsCatalog"]/li'</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">url</span></code></pre></figure>
 
 <p>For any typos and any problem feel free to comment and and mail.
 Piece :)</p>
