@@ -5,7 +5,7 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
     <link>http://localhost:4000/</link>
     <description>A Data Science enthusiast</description>
-    <pubDate>Thu, 02 Feb 2017 12:45:54 +0530</pubDate>
+    <pubDate>Thu, 02 Feb 2017 13:54:10 +0530</pubDate>
     
       <item>
         <title>Django Tutorial for starters</title>
