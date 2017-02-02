@@ -11,7 +11,8 @@ theme:
   description: "A Data Science enthusiast" # used by search engines
 
   # Header and footer text
-  header_text: 
+  header_text: >
+     <p>Data Science, Minimalism and Musings</p>
   header_text_feature_image:
   footer_text: >
     © 2015. All rights reserved.
