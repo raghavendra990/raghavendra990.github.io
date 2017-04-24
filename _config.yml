@@ -12,7 +12,7 @@ theme:
 
   # Header and footer text
   header_text: >
-    Programming is fun
+    <p>Programming is fun</p>
   header_text_feature_image:
   footer_text: >
     © 2015. All rights reserved.

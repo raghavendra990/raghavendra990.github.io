@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+	<meta charset="utf-8">
+	<title>Web scrapping from IMDB using Python | Raghav Blog</title>
+	<meta name="description" content="Recently I worked on the project requiring me to scrap top 10 movies names from IMDB/boxoffice and the name of charachters in each movie.">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-Frame-Options" content="sameorigin">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="/css/main.css">
+
+	<!--Favicon-->
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+	<!-- Canonical -->
+	<link rel="canonical" href="http://localhost:4000/2015/06/30/IMDB-scrapping.html">
+
+	<!-- RSS -->
+	<link rel="alternate" type="application/atom+xml" title="Raghav Blog" href="http://localhost:4000/feed.xml" />
+
+	<!-- Font Awesome -->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Google Fonts -->
+	
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic" rel="stylesheet" type="text/css">
+	
+
+	<!-- KaTeX -->
+	
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.3.0/katex.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.3.0/katex.min.js"></script>
+	
+
+	<!-- Google Analytics -->
+	
+</head>
+
+  <body>
+    <header class="site-header">
+	<div class="branding">
+		
+		<a href="/">
+			<img class="avatar" src="/img/avatar.png" alt=""/>
+		</a>
+		
+		<h1 class="site-title">
+			<a href="/">Raghav Blog</a>
+		</h1>
+	</div>
+	<nav class="site-nav">
+		<ul>
+			
+			
+			
+			
+			<li>
+				<a class="page-link" href="/about/">
+					About me
+				</a>
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			<!-- Social icons from Font Awesome, if enabled -->
+			
+
+
+<li>
+	<a href="mailto:raghavyadav990@gmail.com" title="Email">
+		<i class="fa fa-fw fa-envelope"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://www.facebook.com/raghavyadav990" title="Follow on Facebook">
+		<i class="fa fa-fw fa-facebook"></i>
+	</a>
+</li>
+
+
+
+
+
+<li>
+	<a href="https://github.com/raghavendra990" title="Follow on GitHub">
+		<i class="fa fa-fw fa-github"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+<li>
+	<a href="https://in.linkedin.com/in/raghavyadav990" title="Follow on LinkedIn">
+		<i class="fa fa-fw fa-linkedin"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://twitter.com/raghavyadav990" title="Follow on Twitter">
+		<i class="fa fa-fw fa-twitter"></i>
+	</a>
+</li>
+
+
+
+
+
+
+		</ul>
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header style="background-image: url('/')">
+    <h1 class="title">Web scrapping from IMDB using Python</h1>
+    <p class="meta">
+    June 30, 2015
+    
+    </p>
+  </header>
+  <section class="post-content"><p>Recently I worked on the project requiring me to scrap top 10 movies names from <a href="http://www.imdb.com/boxoffice/">IMDB/boxoffice</a> and the name of charachters in each movie.</p>
+
+<p>I have used <a href="http://lxml.de/index.html#documentation">lxml </a> package because it support <a href="http://www.w3schools.com/xpath/">xpath</a>. In case you don’t know about Xpath, you can easily learn from <a href="http://www.w3schools.com/xpath/">here.</a> You can use other packages too. Basic idea of this blog is to make approach as simple as possible.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">html</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="k">def</span> <span class="nf">box_office</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>  <span class="c"># "n" is top n movies on the page remember "n" should always less than 10, as there is only 10 movies listed on http://www.imdb.com/boxoffice/ </span>
+
+	<span class="n">page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'http://www.imdb.com/boxoffice/'</span><span class="p">)</span>
+	<span class="n">tree</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+	<span class="n">path</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">'//tbody/tr/td[3]/a'</span><span class="p">)</span>
+	<span class="n">movie</span> <span class="o">=</span> <span class="p">[]</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="p">[]</span>
+
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span> <span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+		<span class="n">link</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+		<span class="n">movie</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">link</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+		<span class="n">url</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">"http://www.imdb.com"</span><span class="o">+</span> <span class="n">link</span><span class="o">.</span><span class="n">attrib</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'href'</span><span class="p">))</span>
+	<span class="k">return</span> <span class="n">movie</span><span class="p">,</span> <span class="n">url</span></code></pre></figure>
+
+<p>The above code will return two list for box_office(5):
+movie names:<code><mark>['Jurassic World', 'Inside Out', 'Terminator Genisys', 'Magic Mike XXL', 'Ted 2']</mark></code>
+url of movies: <code><mark>['http://www.imdb.com/title/tt0369610/', 'http://www.imdb.com/title/tt2096673/', 'http://www.imdb.com/title/tt1340138/', 'http://www.imdb.com/title/tt2268016/', 'http://www.imdb.com/title/tt2637276/']
+</mark></code></p>
+
+<h3 id="scrap-cast-name-from-above-url">Scrap cast name from above url.</h3>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">html</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="k">def</span> <span class="nf">cast</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+	<span class="n">page_url</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+	<span class="n">tree_url</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">page_url</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+	<span class="n">path_url_odd</span> <span class="o">=</span> <span class="n">tree_url</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">'//tr[@class="odd"]/td[2]/a/span'</span><span class="p">)</span>
+	<span class="n">path_url_even</span> <span class="o">=</span> <span class="n">tree_url</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">'//tr[@class="even"]/td[2]/a/span'</span><span class="p">)</span>
+
+	<span class="n">cast</span> <span class="o">=</span> <span class="p">[]</span>
+
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">path_url_odd</span><span class="p">)):</span>
+		<span class="k">try</span><span class="p">:</span>
+			<span class="n">cast</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path_url_odd</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+			<span class="n">cast</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path_url_even</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+		<span class="k">except</span> <span class="nb">IndexError</span><span class="p">:</span>
+			<span class="k">continue</span>
+	<span class="k">return</span> <span class="n">cast</span></code></pre></figure>
+
+<p>The above code will going to return list of names of cast in the movie.</p>
+
+<p>for <code><mark>cast("http://www.imdb.com/title/tt0369610/")</mark></code> it will return:
+<code><mark>['Chris Pratt', 'Bryce Dallas Howard', 'Irrfan Khan', "Vincent D'Onofrio", 'Ty Simpkins', 'Nick Robinson', 'Jake Johnson', 'Omar Sy', 'BD Wong', 'Judy Greer', 'Lauren Lapkus', 'Brian Tee', 'Katie McGrath', 'Andy Buckley', 'Eric Edelstein']
+</mark></code></p>
+
+<p>Combining above peice of code into final working program.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">html</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+
+
+<span class="k">def</span> <span class="nf">box_office</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+	<span class="n">page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'http://www.imdb.com/boxoffice/'</span><span class="p">)</span>
+	<span class="n">tree</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+	<span class="n">path</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">'//tbody/tr/td[3]/a'</span><span class="p">)</span>
+
+	<span class="n">movie</span> <span class="o">=</span> <span class="p">[]</span>
+	<span class="n">movie_cast</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span> <span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+		<span class="n">link</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+		<span class="n">movie</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">link</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+		<span class="n">movie_cast</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cast</span><span class="p">(</span><span class="s">"http://www.imdb.com"</span><span class="o">+</span> <span class="n">link</span><span class="o">.</span><span class="n">attrib</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'href'</span><span class="p">)))</span>
+	<span class="k">return</span> <span class="p">(</span><span class="n">movie</span> <span class="p">,</span> <span class="n">movie_cast</span><span class="p">)</span>
+
+				
+
+<span class="k">def</span> <span class="nf">cast</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+	<span class="n">page_url</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+	<span class="n">tree_url</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">page_url</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+	<span class="n">path_url_odd</span> <span class="o">=</span> <span class="n">tree_url</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">'//tr[@class="odd"]/td[2]/a/span'</span><span class="p">)</span>
+	<span class="n">path_url_even</span> <span class="o">=</span> <span class="n">tree_url</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">'//tr[@class="even"]/td[2]/a/span'</span><span class="p">)</span>
+
+	<span class="n">cast</span> <span class="o">=</span> <span class="p">[]</span>
+
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">path_url_odd</span><span class="p">)):</span>
+		<span class="k">try</span><span class="p">:</span>
+			<span class="n">cast</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path_url_odd</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+			<span class="n">cast</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path_url_even</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+		<span class="k">except</span> <span class="nb">IndexError</span><span class="p">:</span>
+			<span class="k">continue</span>
+	<span class="k">return</span> <span class="n">cast</span></code></pre></figure>
+
+<p>Now call <code><mark>box_office()</mark></code> it will return two list, one containing movie name on boxoffice page and other containing name of cast of that movie.</p>
+
+<p>comment below for any type of typo, or suggestion.</p>
+</section>
+</article>
+
+<!-- Post navigation -->
+
+
+<!-- Disqus -->
+
+<div class="comments">
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+	var disqus_shortname = 'raghavendra990';
+	(function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</div>
+
+
+    </div>
+    <script src="/js/main.js"></script>
+
+
+<footer class="site-footer">
+	<p class="text">© 2015. All rights reserved.
+</p>
+</footer>
+
+
+  </body>
+</html>
