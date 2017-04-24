@@ -1,5 +1,5 @@
 # SITE CONFIGURATION
-baseurl: "raghavendra990" # the subpath of your site, e.g. /blog/
+baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://raghavendra990.github.io/" # the base hostname & protocol for your site
 
 # THEME-SPECIFIC CONFIGURATION
@@ -68,7 +68,7 @@ paginate_path: "blog/page:num"
 
 # BUILD SETTINGS
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 sass:
   sass_dir: _sass
   style: :compressed
